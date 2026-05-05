@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: kitchen-ar-webservice
+    runtime: node
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 20
