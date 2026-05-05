@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#235b52" />
+    <title>Kitchen AR</title>
+    <link rel="manifest" href="./manifest.webmanifest?v=20260505-4" />
+    <link rel="icon" href="./icons/kitchen-ar.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css?v=20260505-4" />
+    <script type="module" src="./vendor/model-viewer.min.js?v=20260505-4"></script>
+    <script type="module" src="./app.js?v=20260505-4"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <model-viewer
+        id="kitchenViewer"
+        src="./models/kitchen_design.glb?v=20260505-4"
+        alt="تصميم مطبخ ثلاثي الأبعاد"
+        camera-controls
+        touch-action="pan-y"
+        ar
+        ar-modes="quick-look scene-viewer webxr"
+        ar-placement="floor"
+        ar-scale="auto"
+        xr-environment
+        environment-image="neutral"
+        shadow-intensity="0.85"
+        shadow-softness="0.65"
+        exposure="0.95"
+        camera-orbit="-34deg 66deg 4.8m"
+        field-of-view="28deg"
+        min-camera-orbit="auto 25deg 2m"
+        max-camera-orbit="auto 82deg 9m">
+        <button id="arButton" slot="ar-button" class="ar-button">عرض بالمطبخ</button>
+        <div slot="progress-bar" class="progress">
+          <span class="progress-fill"></span>
+        </div>
+      </model-viewer>
+
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Kitchen AR</p>
+          <h1>تصميم المطبخ</h1>
+        </div>
+        <button id="installButton" class="icon-text hidden" type="button">تثبيت</button>
+      </header>
+
+      <section class="controls" aria-label="تحكم التصميم">
+        <p id="httpsWarning" class="https-warning hidden">
+          فتح الكاميرا يحتاج HTTPS. المعاينة الحالية تعرض التصميم فقط.
+        </p>
+        <div class="control-line">
+          <label for="scaleRange">القياس</label>
+          <output id="scaleValue" for="scaleRange">1.00x</output>
+        </div>
+        <input id="scaleRange" type="range" min="0.35" max="2.5" value="1" step="0.05" />
+
+        <div class="actions">
+          <button id="rotateRight" class="round-button" type="button" aria-label="تدوير لليمين">↻</button>
+          <button id="resetView" class="text-button" type="button">إعادة الضبط</button>
+          <button id="rotateLeft" class="round-button" type="button" aria-label="تدوير لليسار">↺</button>
+        </div>
+      </section>
+
+      <div id="statusToast" class="toast hidden" role="status" aria-live="polite"></div>
+    </main>
+  </body>
+</html>

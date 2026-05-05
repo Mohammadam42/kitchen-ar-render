@@ -1,0 +1,20 @@
+{
+  "name": "Kitchen AR",
+  "short_name": "Kitchen AR",
+  "description": "Kitchen 3D preview in augmented reality.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f6f0",
+  "theme_color": "#235b52",
+  "icons": [
+    {
+      "src": "./icons/kitchen-ar.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
